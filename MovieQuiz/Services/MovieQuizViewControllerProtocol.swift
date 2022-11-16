@@ -19,5 +19,5 @@ protocol MovieQuizViewControllerProtocol: AnyObject {
     func hideImageBoarder ()
     func toggleIsEnablebButtons()
     
-    func showNetworkError(message: String)
+    func showNetworkError(error: Error)
 }
