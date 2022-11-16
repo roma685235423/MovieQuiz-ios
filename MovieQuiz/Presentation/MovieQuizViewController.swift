@@ -97,14 +97,19 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     }
     
     // Функция отображениия ошибки загрузки из сети
-    func showNetworkError (message: String) {
+    func showNetworkError (error: Error) {
+//        func showNetworkError (message: String) {
         showLoadingIndicator()
+        print(error)
+        var stringErr = error.localizedDescription
+        stringErr = stringErr.uppercased()
         let unHappyResultModel = AlertModel(
             title: "Ошибка",
-            message: message,
+            message: stringErr ,
             buttonText: "Попробовать ещё раз"
         ) { [weak self] in
             guard let self = self else {return}
+            print (error)
             self.presenter.restartGame()
         }
         let alertPresenter = AlertPresenter()

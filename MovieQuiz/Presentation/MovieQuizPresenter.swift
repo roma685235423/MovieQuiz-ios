@@ -135,8 +135,7 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     
     // Функция для действий при неудачном походе в сеть
     func didFailToLoadData(with error: Error) {
-        let message = error.localizedDescription
-        viewController?.showNetworkError(message: message)
+        viewController?.showNetworkError(error: error)
     }
     
     // Функция для действий при удачном походе в сеть
